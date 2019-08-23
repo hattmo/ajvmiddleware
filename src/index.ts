@@ -1,4 +1,15 @@
-export default function(): boolean {
-  process.stdout.write("Hattmo Template Library Not Yet Implemented\n");
-  return true;
-}
+import { Request, Response, NextFunction } from "express";
+import Ajv from "ajv";
+
+export default (schema: object) => {
+  const ajv = new Ajv();
+  const validate = ajv.compile(schema);
+  return (req: Request, _res: Response, next: NextFunction) => {
+    const isValid = validate(req.body);
+    if (isValid) {
+      next();
+    } else {
+      next(validate.errors);
+    }
+  };
+};
