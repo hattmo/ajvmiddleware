@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "author": "Hattmo",
+  "license": "GPL-3.0-or-later",
+  "name": "@hattmo/ajvmiddleware",
+  "description": "Middleware for express that validates json bodies in requests using ajv",
+  "scripts": {
+    "test": "mocha -r ts-node/register --bail ./test/**/*Test.ts",
+    "build": "tsc --project .",
+    "prepublish": "npm run build"
+  },
+  "main": "./dist/index.js",
+  "devDependencies": {
+    "@types/chai": "^4.2.0",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.2",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.19.0",
+    "typescript": "^3.5.3"
+  }
+}
